@@ -624,12 +624,25 @@
 <!-- FIXED FOOTER -->
 <footer>
   <span>📧&💬 <a href="mailto:laafeiakresearch@gmail.com">Contact Us and share suggestion</a></span>
-  <span>Donate us</span>
   <span>Try This also👉<a href="https://laafeiakresearch.github.io/LinguaPDF/" target="_blank">📄 LinguaPDF</a></span>
+    <button onclick="pay()">Support ❤️</button>
+  <div id="qrbox" style="display:none; margin-top:20px;">
+    <p>Scan this QR code to donate</p>
+    <img src="upi-qr.png" width="220">
+    <p>UPI ID: chalaagaya@ptyes</p>
+</div>
+
   
 </footer>
 
 <script>
+  function pay(){
+  if(/Android|iPhone/i.test(navigator.userAgent)){
+     window.location.href="upi://pay?pa=chalagayaa@otyes&pn=Aditya kumar&cu=INR";
+  } else {
+     alert("Scan the QR code to donate");
+  }
+}
 /* ════════ VOCAB DB ════════ */
 const VOCAB_SET = [
  
