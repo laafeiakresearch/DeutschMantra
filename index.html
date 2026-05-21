@@ -680,9 +680,44 @@
       20%{transform:translateX(-6px)}
       60%{transform:translateX(4px)}
     }
+
+/*  music player */
+     .music-player{
+            position:fixed;
+            bottom:20px;
+            right:20px;
+            z-index:1000;
+        }
+
+        .music-player button{
+            background:#00ffd5;
+            color:black;
+            border:none;
+            padding:12px 18px;
+            border-radius:10px;
+            cursor:pointer;
+            font-weight:bold;
+        }
+
+        .music-player button:hover{
+            opacity:0.8;
+        }
+      
   </style>
 </head>
 <body>
+
+<!-- MUSIC PLAYER -->
+
+    <div class="music-player">
+        <button id="musicBtn">⏸ Play Music</button>
+
+        <audio id="bgMusic" autoplay loop>
+            <source src="serene-sea.mp3.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+    
+    
 <div class="app" id="app">
  <div class="app-inner">
 
@@ -6663,6 +6698,31 @@ async function copyUpiId() {
 }
 copyUpiBtn.addEventListener('click', copyUpiId);
 upiInputField.addEventListener('dblclick', copyUpiId);
+
+/* music */
+
+  const music = document.getElementById("bgMusic");
+        const btn = document.getElementById("musicBtn");
+
+        // Low background volume
+        music.volume = 0.12;
+
+        btn.addEventListener("click", () => {
+
+            if(music.paused){
+
+                music.play();
+                btn.innerText = "⏸ Pause Music";
+
+            } else {
+
+                music.pause();
+                btn.innerText = "▶ Play Music";
+
+            }
+
+        });
+    
 </script>
 </body>
 </html>
